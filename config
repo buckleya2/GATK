@@ -1,0 +1,34 @@
+#!/bin/bash
+
+### folders ###
+export tools_dir="/cellar/users/abuckley/tools"
+export scripts_dir="/nrnb/users/abuckley/scripts/GATK_pipeline/"
+export ref_files="/nrnb/users/abuckley/scripts/GATK_pipeline/files_for_michelle"
+
+### tools ###
+export samtools="${tools_dir}/samtools-1.2/samtools"
+export bwa="${tools_dir}/bwa-0.7.12/bwa"
+export picard="${tools_dir}/picard-tools-1.131/picard.jar"
+export GATK="${tools_dir}/GenomeAnalysisTK.jar"
+export bedtools="${tools_dir}/bedtools2"
+export bamutil="${tools_dir}/bamUtil_1.0.13/bamUtil/bin/bam"
+
+### reference files ###
+# reference genome 
+export ref="${ref_files}/Homo_sapiens_assembly38.fasta"
+
+############# bed file specifying the exons/ regions of interest !!!!!!!!!!!!!!!!!!!!
+export exons="/nrnb/users/abuckley/scripts/GATK_pipeline/example/data/grch38.exon.22.bed"
+#############
+
+# dbsnp data needed for VQSR
+export dbsnp="${ref_files}/dbsnp_138.hg38.vcf.gz"
+# gold standard indel data needed for VQSR
+export mills="${ref_files}/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"
+# 1000 Genomes data needed for VQSR
+export X1000G="${ref_files}/1000G_phase1.snps.high_confidence.hg38.vcf.gz"
+# omni data needed for VQSR
+export omni="${ref_files}/1000G_omni2.5.hg38.vcf.gz"
+# hapmap data needed for VQSR
+export hapmap="${ref_files}/hapmap_3.3.hg38.vcf.gz"
+

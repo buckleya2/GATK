@@ -1,0 +1,29 @@
+#### GATK germline variant calling pipeline ####
+
+Steps to run:
+
+1) Specify bed file of interest in config file
+	note: make sure the chromosome names match your reference (includng contigs)
+
+2) For each sample, make a haplotypecaller.pipeline.sh script
+	specify: BAM filepath, short sample name, output file path
+	ex: example/scripts/HC.1.sh
+
+3) generate array script to launch haplotype caller scripts 
+	ex: example/scripts/launch.HC.pipeline.sh
+
+4) After all are completed, create a custon genptype.gvcf.sh script
+	specify : names of each gVCF in the script
+	ex: example/scripts/genotype.gvcf.sh 
+
+5) Run gvcf.pipeline.sh once for all samples
+	ex: example/scripts/launch.gvcf.pipeline.sh
+
+
+key output
+
+	gVCF for each sample
+	final VCF filtered using VQSR (short.VQSR.PASS.vcf.gz)
+	final VCF filtered using hard filters (short.hardfilter.PASS.vcf.gz)
+
+
